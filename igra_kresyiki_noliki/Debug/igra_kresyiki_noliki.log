@@ -1,0 +1,4 @@
+﻿  main.cpp
+D:\VLAD\C++\practicum.yandex\lessons_g++\igra_kresyiki_noliki\igra_kresyiki_noliki\main.cpp(80,24): warning C4244: аргумент: преобразование "time_t" в "unsigned int", возможна потеря данных
+D:\VLAD\C++\practicum.yandex\lessons_g++\igra_kresyiki_noliki\igra_kresyiki_noliki\main.cpp(91,28): warning C4244: аргумент: преобразование "time_t" в "unsigned int", возможна потеря данных
+  igra_kresyiki_noliki.vcxproj -> D:\VLAD\C++\practicum.yandex\lessons_g++\igra_kresyiki_noliki\Debug\igra_kresyiki_noliki.exe
