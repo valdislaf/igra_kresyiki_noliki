@@ -69,7 +69,7 @@ string you_move()
 }
 map<string, Cell> Angle(map<string, Cell>cells)
 {
-
+    srand(time(NULL));
     cout << "wait..." << endl;
     if((cells[cell_rnd_(cells)[0]].value == '-')
         || (cells[cell_rnd_(cells)[2]].value == '-')
@@ -77,7 +77,7 @@ map<string, Cell> Angle(map<string, Cell>cells)
         || (cells[cell_rnd_(cells)[8]].value == '-')
         ){ 
 m02:
-    int rnd; srand(time(NULL)); rnd = rand() % 9;
+    int rnd; rnd = rand() % 9;
     if ((rnd == 0) || (rnd == 2) || (rnd == 6) || (rnd == 8))
     {
         if (cells[cell_rnd_(cells)[rnd]].value == '-') { cells[cell_rnd_(cells)[rnd]].value = '0'; }
@@ -88,7 +88,7 @@ m02:
     else
     {
     m03:
-        int rnd; srand(time(NULL)); rnd = rand() % 9;
+        int rnd; rnd = rand() % 9;
         if (cells[cell_rnd_(cells)[rnd]].value == '-') { cells[cell_rnd_(cells)[rnd]].value = '0'; }
         else { goto m03; }
     }
