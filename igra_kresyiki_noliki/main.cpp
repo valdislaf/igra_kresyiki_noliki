@@ -2,7 +2,9 @@
 #include <map>
 #include <string>
 #include <vector>
+
 using namespace std;
+
 struct Cell {
     string name;
     char value = '-';
@@ -54,7 +56,7 @@ void print_table(map<string, Cell>cells)
 
     cout << "   "s << 1 << " "s << " "s << 2 << " "s << " "s << 3 << " "s << endl;
 
-    for (auto c : table) {
+    for (auto& c : table) {
         bool first_v = true;
         for (Cell c : table[c.first]) {
             if (first_v) { cout << c.name.substr(0, 1) << " "s; }
@@ -68,7 +70,7 @@ map<int, string>cell_rnd_(map<string, Cell>cells)
 {
     map<int, string>cell_4_rnd;
     int i = 0;
-    for (auto x : cells)
+    for (auto& x : cells)
     {
         cell_4_rnd[i] = x.second.name; ++i;
     }
@@ -129,10 +131,10 @@ bool chek(map<string, Cell>cells) {
     {  //проверка на ничью
         bool  break0 = false;
         int countX = 0; int count0 = 0;
-        for (auto v : Win)
+        for (auto& v : Win)
         {
             bool if_x = false; bool if_0 = false;
-            for (auto vf : v.second)
+            for (auto& vf : v.second)
             {
                 if (vf.value == 'X') { if_x = true; }
                 if (vf.value == '0') { if_0 = true; }
@@ -147,11 +149,11 @@ bool chek(map<string, Cell>cells) {
     }
     {
         //проверка на победу
-        bool   break0 = false;
-        for (auto v : Win)
+        bool  break0 = false;
+        for (auto& v : Win)
         {
             int count = 0;
-            for (auto vf : v.second)
+            for (auto& vf : v.second)
             {
                 if (vf.value == 'X') { ++count; }
                 if (count == 3) {
@@ -165,10 +167,10 @@ bool chek(map<string, Cell>cells) {
     }
     {  //проверка на поражение
         bool   break0 = false;
-        for (auto v : Win)
+        for (auto& v : Win)
         {
             int count = 0;
-            for (auto vf : v.second)
+            for (auto& vf : v.second)
             {
                 if (vf.value == '0') { ++count; }
                 if (count == 3) {
@@ -185,14 +187,14 @@ bool chek(map<string, Cell>cells) {
 map<string, Cell> Machine_play(map<string, Cell>cells)
 {
     bool break0 = false;  bool break1 = false;
-    for (auto v : Win_(cells))
+    for (auto& v : Win_(cells))
     {
         int count = 0;
-        for (auto vf : v.second)
+        for (auto& vf : v.second)
         {
             if (vf.value == '0') { ++count; }
             if (count == 2) {
-                for (auto vf : v.second)
+                for (auto& vf : v.second)
                 {
                     if (vf.value == '-') { cells[vf.name].value = '0'; break0 = true; break; }
                 }
@@ -202,14 +204,14 @@ map<string, Cell> Machine_play(map<string, Cell>cells)
 
     }
     if (!break0) {
-        for (auto v : Win_(cells))
+        for (auto& v : Win_(cells))
         {
             int count = 0;
-            for (auto vf : v.second)
+            for (auto& vf : v.second)
             {
                 if (vf.value == 'X') { ++count; }
                 if (count == 2) {
-                    for (auto vf : v.second)
+                    for (auto& vf : v.second)
                     {
                         if (vf.value == '-') { cells[vf.name].value = '0'; break0 = true; break; }
                     }
@@ -219,14 +221,14 @@ map<string, Cell> Machine_play(map<string, Cell>cells)
         }
         if ((!break0) && (break1))
         {
-            for (auto v : Win_(cells))
+            for (auto& v : Win_(cells))
             {
                 int count = 0;
-                for (auto vf : v.second)
+                for (auto& vf : v.second)
                 {
                     if (vf.value == '-') { ++count; }
                     if (count == 2) {
-                        for (auto vf : v.second)
+                        for (auto& vf : v.second)
                         {
                             cells = Angle(cells);
                             break0 = true; break;
